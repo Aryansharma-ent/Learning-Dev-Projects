@@ -70,7 +70,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`songs/`)   // ✅ removed localhost
+    let a = await fetch(`/songs/`)   // ✅ removed localhost
     let response = await a.text();
     console.log(response)
     let div = document.createElement("div")
@@ -85,7 +85,7 @@ async function displayAlbums() {
             let folder = e.href.split("/").slice(-2)[0]
 
             // get the meta data of the folder
-            let a = await fetch(`songs/${folder}/info.json`)  // ✅ relative
+            let a = await fetch(`/songs/${folder}/info.json`)  // ✅ relative
             let response = await a.json();
 
             cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
